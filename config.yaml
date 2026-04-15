@@ -1,0 +1,27 @@
+# config.yaml
+app:
+  name: "Tender Monitoring Bot"
+  log_level: "INFO"
+
+database:
+  path: "data/tenders.db"
+
+# This is where you will add more keywords later!
+relevance:
+  keywords_strong:
+    - "messebau"
+    - "standbau"
+    - "messestand"
+    - "eventarchitektur"
+  keywords_secondary:
+    - "montage"
+    - "logistik"
+    - "temporäre bauten"
+  cpv_codes:
+    - "79950000" # Exhibition/event services
+    - "45212320" # Construction of exhibition buildings
+
+# How important is each factor? (Total should be 1.0)
+weights:
+  keyword_score: 0.5
+  cpv_score: 0.5
