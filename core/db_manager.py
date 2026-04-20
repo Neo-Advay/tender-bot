@@ -22,7 +22,16 @@ class DatabaseManager:
         """Creates all tables based on models."""
         Base.metadata.create_all(self.engine)
         self._create_run_log_table()
+        self._create_unique_indexes()
         logger.info("Database tables created successfully.")
+
+    def _create_unique_indexes(self):
+        with self.engine.connect() as conn:
+            conn.execute(text("""
+            CREATE UNIQUE INDEX IF NOT EXISTS uq_tenders_source_external_id
+            ON tenders(source, external_id)
+                        """))
+            conn.commit()
 
     # ── Run Log Table ──────────────────────────────────────────────────────────
 
@@ -144,3 +153,24 @@ class DatabaseManager:
             raise
         finally:
             session.close()
+
+    def get_last_run_time(db: "DatabaseManager", source: str):
+        """Returns the datetime of the last successful run for a source, or None."""
+        from sqlalchemy import text
+        with db.engine.connect() as conn:
+            result = conn.execute(
+            text("""
+                SELECT started_at FROM runs_log
+                WHERE source = :source AND status = 'SUCCESS'
+                ORDER BY started_at DESC
+                LIMIT 1
+            """),
+            {"source": source}
+            ).fetchone()
+        if result:
+            from datetime import datetime, timezone
+            dt = result[0]
+            if isinstance(dt, str):
+                dt = datetime.fromisoformat(dt)
+            return dt.replace(tzinfo=timezone.utc) if dt.tzinfo is None else dt
+        return None

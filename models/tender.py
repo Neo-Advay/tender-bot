@@ -1,6 +1,6 @@
 # models/tender.py
 
-from sqlalchemy import Column, Integer, String, Float, Text
+from sqlalchemy import Column, Integer, String, Float, Text, UniqueConstraint
 from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
@@ -29,6 +29,9 @@ class Tender(Base):
     # ── Classification ─────────────────────────────────────────────────────────
     notice_type = Column(String(100), default="N/A")
     cpv_codes = Column(Text, default="")                 # Comma-separated list
+
+
+    __table_args__ = (UniqueConstraint("source", "external_id", name="uq_tenders_source_external_id"),)
 
     # ── Scoring ────────────────────────────────────────────────────────────────
     score = Column(Float, default=0.0)

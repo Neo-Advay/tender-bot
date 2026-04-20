@@ -1,0 +1,224 @@
+2026-04-20 11:31:11,183 [INFO] __main__ — ============================================================
+2026-04-20 11:31:11,183 [INFO] __main__ — Tender Bot — Starting full run
+2026-04-20 11:31:11,183 [INFO] __main__ — ============================================================
+2026-04-20 11:31:11,183 [INFO] __main__ — [Main] Running connector: TED_EU
+2026-04-20 11:31:11,272 [INFO] pipeline.run_pipeline — [Pipeline] Starting run for TED_EU
+2026-04-20 11:31:11,273 [ERROR] pipeline.run_pipeline — [Pipeline] Run failed for TED_EU: module 'connectors.ted.client' has no attribute 'fetch_notices'
+2026-04-20 11:31:11,283 [INFO] pipeline.ingest — [Ingest] Run log saved for TED_EU — Status: FAILED
+2026-04-20 11:31:11,283 [INFO] __main__ — ============================================================
+2026-04-20 11:31:11,284 [INFO] __main__ — [Main] All connectors done — New: 0, Updated: 0, Unchanged: 0, Errors: 0
+2026-04-20 11:31:11,284 [INFO] __main__ — ============================================================
+2026-04-20 11:32:11,467 [INFO] __main__ — ============================================================
+2026-04-20 11:32:11,468 [INFO] __main__ — Tender Bot — Starting full run
+2026-04-20 11:32:11,468 [INFO] __main__ — ============================================================
+2026-04-20 11:32:11,468 [INFO] __main__ — [Main] Running connector: TED_EU
+2026-04-20 11:32:11,480 [INFO] pipeline.run_pipeline — [Pipeline] Starting run for TED_EU
+2026-04-20 11:32:11,480 [INFO] connectors.ted.client — [TED] Fetching page 1 (since=all)...
+2026-04-20 11:32:12,040 [INFO] connectors.ted.client — [TED] Page 1: 54 notices returned.
+2026-04-20 11:32:12,041 [INFO] connectors.ted.client — [TED] Last page reached at page 1.
+2026-04-20 11:32:12,041 [INFO] connectors.ted.client — [TED] Total raw notices fetched: 54
+2026-04-20 11:32:12,041 [INFO] pipeline.run_pipeline — [Pipeline] Fetched 54 raw notices from TED_EU
+2026-04-20 11:32:12,062 [INFO] pipeline.run_pipeline — [Pipeline] Normalized 54 tenders
+2026-04-20 11:32:12,089 [INFO] pipeline.ingest — [Ingest] Run complete for TED_EU — New: 0, Updated: 0, Unchanged: 54, Errors: 0
+2026-04-20 11:32:12,089 [INFO] pipeline.run_pipeline — [Pipeline] TED_EU done — 0 tenders queued for notification
+2026-04-20 11:32:12,093 [INFO] pipeline.ingest — [Ingest] Run log saved for TED_EU — Status: SUCCESS
+2026-04-20 11:32:12,094 [INFO] __main__ — ============================================================
+2026-04-20 11:32:12,095 [INFO] __main__ — [Main] All connectors done — New: 0, Updated: 0, Unchanged: 54, Errors: 0
+2026-04-20 11:32:12,095 [INFO] __main__ — ============================================================
+2026-04-20 11:33:24,960 [INFO] __main__ — === Tender Bot Scheduler started ===
+2026-04-20 11:33:24,961 [INFO] __main__ —     Interval: 60 seconds
+2026-04-20 11:33:24,961 [INFO] __main__ — [Scheduler] Run starting at 2026-04-20 09:33:24 UTC
+2026-04-20 11:33:24,962 [INFO] main — ============================================================
+2026-04-20 11:33:24,962 [INFO] main — Tender Bot — Starting full run
+2026-04-20 11:33:24,962 [INFO] main — ============================================================
+2026-04-20 11:33:24,962 [INFO] main — [Main] Running connector: TED_EU
+2026-04-20 11:33:24,982 [INFO] pipeline.run_pipeline — [Pipeline] Starting run for TED_EU
+2026-04-20 11:33:24,982 [INFO] connectors.ted.client — [TED] Fetching page 1 (since=all)...
+2026-04-20 11:33:25,789 [INFO] connectors.ted.client — [TED] Page 1: 54 notices returned.
+2026-04-20 11:33:25,789 [INFO] connectors.ted.client — [TED] Last page reached at page 1.
+2026-04-20 11:33:25,789 [INFO] connectors.ted.client — [TED] Total raw notices fetched: 54
+2026-04-20 11:33:25,790 [INFO] pipeline.run_pipeline — [Pipeline] Fetched 54 raw notices from TED_EU
+2026-04-20 11:33:25,793 [INFO] pipeline.run_pipeline — [Pipeline] Normalized 54 tenders
+2026-04-20 11:33:25,826 [INFO] pipeline.ingest — [Ingest] Run complete for TED_EU — New: 0, Updated: 0, Unchanged: 54, Errors: 0
+2026-04-20 11:33:25,826 [INFO] pipeline.run_pipeline — [Pipeline] TED_EU done — 0 tenders queued for notification
+2026-04-20 11:33:25,845 [INFO] pipeline.ingest — [Ingest] Run log saved for TED_EU — Status: SUCCESS
+2026-04-20 11:33:25,846 [INFO] main — ============================================================
+2026-04-20 11:33:25,846 [INFO] main — [Main] All connectors done — New: 0, Updated: 0, Unchanged: 54, Errors: 0
+2026-04-20 11:33:25,846 [INFO] main — ============================================================
+2026-04-20 11:33:25,846 [INFO] __main__ — [Scheduler] Sleeping for 60 seconds...
+2026-04-20 11:34:25,848 [INFO] __main__ — [Scheduler] Run starting at 2026-04-20 09:34:25 UTC
+2026-04-20 11:34:25,849 [INFO] main — ============================================================
+2026-04-20 11:34:25,849 [INFO] main — Tender Bot — Starting full run
+2026-04-20 11:34:25,849 [INFO] main — ============================================================
+2026-04-20 11:34:25,850 [INFO] main — [Main] Running connector: TED_EU
+2026-04-20 11:34:25,853 [INFO] pipeline.run_pipeline — [Pipeline] Starting run for TED_EU
+2026-04-20 11:34:25,854 [INFO] connectors.ted.client — [TED] Fetching page 1 (since=all)...
+2026-04-20 11:34:26,303 [INFO] connectors.ted.client — [TED] Page 1: 54 notices returned.
+2026-04-20 11:34:26,304 [INFO] connectors.ted.client — [TED] Last page reached at page 1.
+2026-04-20 11:34:26,304 [INFO] connectors.ted.client — [TED] Total raw notices fetched: 54
+2026-04-20 11:34:26,304 [INFO] pipeline.run_pipeline — [Pipeline] Fetched 54 raw notices from TED_EU
+2026-04-20 11:34:26,307 [INFO] pipeline.run_pipeline — [Pipeline] Normalized 54 tenders
+2026-04-20 11:34:26,334 [INFO] pipeline.ingest — [Ingest] Run complete for TED_EU — New: 0, Updated: 0, Unchanged: 54, Errors: 0
+2026-04-20 11:34:26,334 [INFO] pipeline.run_pipeline — [Pipeline] TED_EU done — 0 tenders queued for notification
+2026-04-20 11:34:26,352 [INFO] pipeline.ingest — [Ingest] Run log saved for TED_EU — Status: SUCCESS
+2026-04-20 11:34:26,352 [INFO] main — ============================================================
+2026-04-20 11:34:26,352 [INFO] main — [Main] All connectors done — New: 0, Updated: 0, Unchanged: 54, Errors: 0
+2026-04-20 11:34:26,353 [INFO] main — ============================================================
+2026-04-20 11:34:26,353 [INFO] __main__ — [Scheduler] Sleeping for 60 seconds...
+2026-04-20 11:35:26,354 [INFO] __main__ — [Scheduler] Run starting at 2026-04-20 09:35:26 UTC
+2026-04-20 11:35:26,355 [INFO] main — ============================================================
+2026-04-20 11:35:26,355 [INFO] main — Tender Bot — Starting full run
+2026-04-20 11:35:26,355 [INFO] main — ============================================================
+2026-04-20 11:35:26,355 [INFO] main — [Main] Running connector: TED_EU
+2026-04-20 11:35:26,358 [INFO] pipeline.run_pipeline — [Pipeline] Starting run for TED_EU
+2026-04-20 11:35:26,358 [INFO] connectors.ted.client — [TED] Fetching page 1 (since=all)...
+2026-04-20 11:35:26,902 [INFO] connectors.ted.client — [TED] Page 1: 54 notices returned.
+2026-04-20 11:35:26,902 [INFO] connectors.ted.client — [TED] Last page reached at page 1.
+2026-04-20 11:35:26,902 [INFO] connectors.ted.client — [TED] Total raw notices fetched: 54
+2026-04-20 11:35:26,902 [INFO] pipeline.run_pipeline — [Pipeline] Fetched 54 raw notices from TED_EU
+2026-04-20 11:35:26,904 [INFO] pipeline.run_pipeline — [Pipeline] Normalized 54 tenders
+2026-04-20 11:35:26,926 [INFO] pipeline.ingest — [Ingest] Run complete for TED_EU — New: 0, Updated: 0, Unchanged: 54, Errors: 0
+2026-04-20 11:35:26,926 [INFO] pipeline.run_pipeline — [Pipeline] TED_EU done — 0 tenders queued for notification
+2026-04-20 11:35:26,943 [INFO] pipeline.ingest — [Ingest] Run log saved for TED_EU — Status: SUCCESS
+2026-04-20 11:35:26,944 [INFO] main — ============================================================
+2026-04-20 11:35:26,944 [INFO] main — [Main] All connectors done — New: 0, Updated: 0, Unchanged: 54, Errors: 0
+2026-04-20 11:35:26,944 [INFO] main — ============================================================
+2026-04-20 11:35:26,944 [INFO] __main__ — [Scheduler] Sleeping for 60 seconds...
+2026-04-20 11:36:26,945 [INFO] __main__ — [Scheduler] Run starting at 2026-04-20 09:36:26 UTC
+2026-04-20 11:36:26,946 [INFO] main — ============================================================
+2026-04-20 11:36:26,947 [INFO] main — Tender Bot — Starting full run
+2026-04-20 11:36:26,947 [INFO] main — ============================================================
+2026-04-20 11:36:26,947 [INFO] main — [Main] Running connector: TED_EU
+2026-04-20 11:36:26,950 [INFO] pipeline.run_pipeline — [Pipeline] Starting run for TED_EU
+2026-04-20 11:36:26,951 [INFO] connectors.ted.client — [TED] Fetching page 1 (since=all)...
+2026-04-20 11:36:27,493 [INFO] connectors.ted.client — [TED] Page 1: 54 notices returned.
+2026-04-20 11:36:27,494 [INFO] connectors.ted.client — [TED] Last page reached at page 1.
+2026-04-20 11:36:27,494 [INFO] connectors.ted.client — [TED] Total raw notices fetched: 54
+2026-04-20 11:36:27,494 [INFO] pipeline.run_pipeline — [Pipeline] Fetched 54 raw notices from TED_EU
+2026-04-20 11:36:27,496 [INFO] pipeline.run_pipeline — [Pipeline] Normalized 54 tenders
+2026-04-20 11:36:27,520 [INFO] pipeline.ingest — [Ingest] Run complete for TED_EU — New: 0, Updated: 0, Unchanged: 54, Errors: 0
+2026-04-20 11:36:27,521 [INFO] pipeline.run_pipeline — [Pipeline] TED_EU done — 0 tenders queued for notification
+2026-04-20 11:36:27,538 [INFO] pipeline.ingest — [Ingest] Run log saved for TED_EU — Status: SUCCESS
+2026-04-20 11:36:27,539 [INFO] main — ============================================================
+2026-04-20 11:36:27,539 [INFO] main — [Main] All connectors done — New: 0, Updated: 0, Unchanged: 54, Errors: 0
+2026-04-20 11:36:27,540 [INFO] main — ============================================================
+2026-04-20 11:36:27,540 [INFO] __main__ — [Scheduler] Sleeping for 60 seconds...
+2026-04-20 11:37:27,541 [INFO] __main__ — [Scheduler] Run starting at 2026-04-20 09:37:27 UTC
+2026-04-20 11:37:27,541 [INFO] main — ============================================================
+2026-04-20 11:37:27,542 [INFO] main — Tender Bot — Starting full run
+2026-04-20 11:37:27,542 [INFO] main — ============================================================
+2026-04-20 11:37:27,542 [INFO] main — [Main] Running connector: TED_EU
+2026-04-20 11:37:27,546 [INFO] pipeline.run_pipeline — [Pipeline] Starting run for TED_EU
+2026-04-20 11:37:27,546 [INFO] connectors.ted.client — [TED] Fetching page 1 (since=all)...
+2026-04-20 11:37:28,039 [INFO] connectors.ted.client — [TED] Page 1: 54 notices returned.
+2026-04-20 11:37:28,039 [INFO] connectors.ted.client — [TED] Last page reached at page 1.
+2026-04-20 11:37:28,039 [INFO] connectors.ted.client — [TED] Total raw notices fetched: 54
+2026-04-20 11:37:28,040 [INFO] pipeline.run_pipeline — [Pipeline] Fetched 54 raw notices from TED_EU
+2026-04-20 11:37:28,042 [INFO] pipeline.run_pipeline — [Pipeline] Normalized 54 tenders
+2026-04-20 11:37:28,076 [INFO] pipeline.ingest — [Ingest] Run complete for TED_EU — New: 0, Updated: 0, Unchanged: 54, Errors: 0
+2026-04-20 11:37:28,076 [INFO] pipeline.run_pipeline — [Pipeline] TED_EU done — 0 tenders queued for notification
+2026-04-20 11:37:28,097 [INFO] pipeline.ingest — [Ingest] Run log saved for TED_EU — Status: SUCCESS
+2026-04-20 11:37:28,099 [INFO] main — ============================================================
+2026-04-20 11:37:28,099 [INFO] main — [Main] All connectors done — New: 0, Updated: 0, Unchanged: 54, Errors: 0
+2026-04-20 11:37:28,099 [INFO] main — ============================================================
+2026-04-20 11:37:28,099 [INFO] __main__ — [Scheduler] Sleeping for 60 seconds...
+2026-04-20 11:38:28,101 [INFO] __main__ — [Scheduler] Run starting at 2026-04-20 09:38:28 UTC
+2026-04-20 11:38:28,101 [INFO] main — ============================================================
+2026-04-20 11:38:28,102 [INFO] main — Tender Bot — Starting full run
+2026-04-20 11:38:28,102 [INFO] main — ============================================================
+2026-04-20 11:38:28,102 [INFO] main — [Main] Running connector: TED_EU
+2026-04-20 11:38:28,105 [INFO] pipeline.run_pipeline — [Pipeline] Starting run for TED_EU
+2026-04-20 11:38:28,105 [INFO] connectors.ted.client — [TED] Fetching page 1 (since=all)...
+2026-04-20 11:38:28,633 [INFO] connectors.ted.client — [TED] Page 1: 54 notices returned.
+2026-04-20 11:38:28,634 [INFO] connectors.ted.client — [TED] Last page reached at page 1.
+2026-04-20 11:38:28,634 [INFO] connectors.ted.client — [TED] Total raw notices fetched: 54
+2026-04-20 11:38:28,634 [INFO] pipeline.run_pipeline — [Pipeline] Fetched 54 raw notices from TED_EU
+2026-04-20 11:38:28,637 [INFO] pipeline.run_pipeline — [Pipeline] Normalized 54 tenders
+2026-04-20 11:38:28,678 [INFO] pipeline.ingest — [Ingest] Run complete for TED_EU — New: 0, Updated: 0, Unchanged: 54, Errors: 0
+2026-04-20 11:38:28,678 [INFO] pipeline.run_pipeline — [Pipeline] TED_EU done — 0 tenders queued for notification
+2026-04-20 11:38:28,698 [INFO] pipeline.ingest — [Ingest] Run log saved for TED_EU — Status: SUCCESS
+2026-04-20 11:38:28,698 [INFO] main — ============================================================
+2026-04-20 11:38:28,699 [INFO] main — [Main] All connectors done — New: 0, Updated: 0, Unchanged: 54, Errors: 0
+2026-04-20 11:38:28,699 [INFO] main — ============================================================
+2026-04-20 11:38:28,699 [INFO] __main__ — [Scheduler] Sleeping for 60 seconds...
+2026-04-20 12:22:33,951 [INFO] __main__ — ============================================================
+2026-04-20 12:22:33,951 [INFO] __main__ — Tender Bot — Starting full run
+2026-04-20 12:22:33,952 [INFO] __main__ — ============================================================
+2026-04-20 12:22:33,952 [INFO] __main__ — [Main] Running connector: TED_EU
+2026-04-20 12:22:33,967 [INFO] pipeline.run_pipeline — [Pipeline] Starting run for TED_EU
+2026-04-20 12:22:33,987 [INFO] connectors.ted.client — [TED] Fetching page 1 (since=2026-04-20)...
+2026-04-20 12:22:34,338 [INFO] connectors.ted.client — [TED] Page 1: 0 notices returned.
+2026-04-20 12:22:34,338 [INFO] connectors.ted.client — [TED] Last page reached at page 1.
+2026-04-20 12:22:34,338 [INFO] connectors.ted.client — [TED] Total raw notices fetched: 0
+2026-04-20 12:22:34,338 [INFO] pipeline.run_pipeline — [Pipeline] Fetched 0 raw notices from TED_EU
+2026-04-20 12:22:34,339 [INFO] pipeline.run_pipeline — [Pipeline] Normalized 0 tenders
+2026-04-20 12:22:34,339 [INFO] pipeline.ingest — [Ingest] Run complete for TED_EU — New: 0, Updated: 0, Unchanged: 0, Errors: 0
+2026-04-20 12:22:34,339 [INFO] pipeline.run_pipeline — [Pipeline] TED_EU done — 0 tenders queued for notification
+2026-04-20 12:22:34,356 [INFO] pipeline.ingest — [Ingest] Run log saved for TED_EU — Status: SUCCESS
+2026-04-20 12:22:34,357 [INFO] __main__ — ============================================================
+2026-04-20 12:22:34,357 [INFO] __main__ — [Main] All connectors done — New: 0, Updated: 0, Unchanged: 0, Errors: 0
+2026-04-20 12:22:34,357 [INFO] __main__ — ============================================================
+2026-04-20 12:22:51,698 [INFO] __main__ — ============================================================
+2026-04-20 12:22:51,698 [INFO] __main__ — Tender Bot — Starting full run
+2026-04-20 12:22:51,698 [INFO] __main__ — ============================================================
+2026-04-20 12:22:51,698 [INFO] __main__ — [Main] Running connector: TED_EU
+2026-04-20 12:22:51,710 [INFO] pipeline.run_pipeline — [Pipeline] Starting run for TED_EU
+2026-04-20 12:22:51,713 [INFO] connectors.ted.client — [TED] Fetching page 1 (since=2026-04-20)...
+2026-04-20 12:22:52,039 [INFO] connectors.ted.client — [TED] Page 1: 0 notices returned.
+2026-04-20 12:22:52,040 [INFO] connectors.ted.client — [TED] Last page reached at page 1.
+2026-04-20 12:22:52,040 [INFO] connectors.ted.client — [TED] Total raw notices fetched: 0
+2026-04-20 12:22:52,040 [INFO] pipeline.run_pipeline — [Pipeline] Fetched 0 raw notices from TED_EU
+2026-04-20 12:22:52,040 [INFO] pipeline.run_pipeline — [Pipeline] Normalized 0 tenders
+2026-04-20 12:22:52,041 [INFO] pipeline.ingest — [Ingest] Run complete for TED_EU — New: 0, Updated: 0, Unchanged: 0, Errors: 0
+2026-04-20 12:22:52,041 [INFO] pipeline.run_pipeline — [Pipeline] TED_EU done — 0 tenders queued for notification
+2026-04-20 12:22:52,058 [INFO] pipeline.ingest — [Ingest] Run log saved for TED_EU — Status: SUCCESS
+2026-04-20 12:22:52,058 [INFO] __main__ — ============================================================
+2026-04-20 12:22:52,058 [INFO] __main__ — [Main] All connectors done — New: 0, Updated: 0, Unchanged: 0, Errors: 0
+2026-04-20 12:22:52,059 [INFO] __main__ — ============================================================
+2026-04-20 14:06:48,299 [INFO] __main__ — ============================================================
+2026-04-20 14:06:48,300 [INFO] __main__ — Tender Bot — Starting full run
+2026-04-20 14:06:48,300 [INFO] __main__ — ============================================================
+2026-04-20 14:06:48,300 [INFO] __main__ — [Main] Running connector: TED_EU
+2026-04-20 14:06:48,310 [INFO] pipeline.run_pipeline — [Pipeline] Starting run for TED_EU
+2026-04-20 14:06:48,312 [ERROR] pipeline.run_pipeline — [Pipeline] Run failed for TED_EU: cannot access local variable 'raw_notices' where it is not associated with a value
+2026-04-20 14:06:48,315 [INFO] pipeline.ingest — [Ingest] Run log saved for TED_EU — Status: FAILED
+2026-04-20 14:06:48,315 [INFO] __main__ — ============================================================
+2026-04-20 14:06:48,315 [INFO] __main__ — [Main] All connectors done — New: 0, Updated: 0, Unchanged: 0, Errors: 0
+2026-04-20 14:06:48,315 [INFO] __main__ — ============================================================
+2026-04-20 14:13:50,304 [INFO] __main__ — ============================================================
+2026-04-20 14:13:50,305 [INFO] __main__ — Tender Bot — Starting full run
+2026-04-20 14:13:50,305 [INFO] __main__ — ============================================================
+2026-04-20 14:13:50,305 [INFO] __main__ — [Main] Running connector: TED_EU
+2026-04-20 14:13:50,315 [INFO] pipeline.run_pipeline — [Pipeline] Starting run for TED_EU
+2026-04-20 14:13:50,317 [INFO] connectors.ted.client — [TED] Fetching page 1 (since=2026-04-20)...
+2026-04-20 14:13:50,627 [INFO] connectors.ted.client — [TED] Page 1: 0 notices returned.
+2026-04-20 14:13:50,627 [INFO] connectors.ted.client — [TED] Last page reached at page 1.
+2026-04-20 14:13:50,627 [INFO] connectors.ted.client — [TED] Total raw notices fetched: 0
+2026-04-20 14:13:50,627 [INFO] pipeline.run_pipeline — [Pipeline] Fetched 0 raw notices from TED_EU
+2026-04-20 14:13:50,627 [INFO] pipeline.run_pipeline — [HealthCheck] TED_EU — 0 new notices since 2026-04-20. Normal if no new tenders today.
+2026-04-20 14:13:50,628 [INFO] pipeline.run_pipeline — [Pipeline] Normalized 0 tenders
+2026-04-20 14:13:50,632 [INFO] pipeline.ingest — [Ingest] Run complete for TED_EU — New: 0, Updated: 0, Unchanged: 0, Errors: 0
+2026-04-20 14:13:50,632 [INFO] pipeline.run_pipeline — [Pipeline] TED_EU done — 0 tenders queued for notification
+2026-04-20 14:13:50,635 [INFO] pipeline.ingest — [Ingest] Run log saved for TED_EU — Status: SUCCESS
+2026-04-20 14:13:50,635 [INFO] __main__ — ============================================================
+2026-04-20 14:13:50,636 [INFO] __main__ — [Main] All connectors done — New: 0, Updated: 0, Unchanged: 0, Errors: 0
+2026-04-20 14:13:50,636 [INFO] __main__ — ============================================================
+2026-04-20 14:16:52,180 [INFO] __main__ — ============================================================
+2026-04-20 14:16:52,180 [INFO] __main__ — Tender Bot — Starting full run
+2026-04-20 14:16:52,180 [INFO] __main__ — ============================================================
+2026-04-20 14:16:52,180 [INFO] __main__ — [Main] Running connector: TED_EU
+2026-04-20 14:16:52,189 [INFO] pipeline.run_pipeline — [Pipeline] Starting run for TED_EU
+2026-04-20 14:16:52,192 [INFO] connectors.ted.client — [TED] Fetching page 1 (since=2026-04-20)...
+2026-04-20 14:16:52,586 [INFO] connectors.ted.client — [TED] Page 1: 0 notices returned.
+2026-04-20 14:16:52,586 [INFO] connectors.ted.client — [TED] Last page reached at page 1.
+2026-04-20 14:16:52,587 [INFO] connectors.ted.client — [TED] Total raw notices fetched: 0
+2026-04-20 14:16:52,587 [INFO] pipeline.run_pipeline — [Pipeline] Fetched 0 raw notices from TED_EU
+2026-04-20 14:16:52,587 [INFO] pipeline.run_pipeline — [HealthCheck] TED_EU — 0 new notices since 2026-04-20. Normal if no new tenders today.
+2026-04-20 14:16:52,587 [INFO] pipeline.run_pipeline — [Pipeline] Normalized 0 tenders
+2026-04-20 14:16:52,587 [INFO] pipeline.run_pipeline — [QC] TED_EU — all 0 tenders passed quality check OK
+2026-04-20 14:16:52,587 [INFO] pipeline.ingest — [Ingest] Run complete for TED_EU — New: 0, Updated: 0, Unchanged: 0, Errors: 0
+2026-04-20 14:16:52,587 [INFO] pipeline.run_pipeline — [Pipeline] TED_EU done — 0 tenders queued for notification
+2026-04-20 14:16:52,591 [INFO] pipeline.ingest — [Ingest] Run log saved for TED_EU — Status: SUCCESS
+2026-04-20 14:16:52,591 [INFO] __main__ — ============================================================
+2026-04-20 14:16:52,591 [INFO] __main__ — [Main] All connectors done — New: 0, Updated: 0, Unchanged: 0, Errors: 0
+2026-04-20 14:16:52,591 [INFO] __main__ — ============================================================

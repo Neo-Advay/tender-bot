@@ -7,6 +7,10 @@ from pipeline.run_pipeline import run_connector
 from connectors.ted import client as ted_client
 from connectors.ted import mapper as ted_mapper
 
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
+sys.stderr.reconfigure(encoding='utf-8')
+
 # ── Logging setup ──────────────────────────────────────────────────────────────
 config = load_config()
 

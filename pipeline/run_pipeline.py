@@ -10,6 +10,31 @@ from pipeline.ingest import ingest_tenders, log_run
 logger = logging.getLogger(__name__)
 scoring_engine = ScoringEngine()
 
+def _check_tender_quality(tenders, source):
+    """Logs warnings for tenders missing critical fields."""
+    issues = 0
+    for t in tenders:
+        missing = []
+        if not t.external_id:   missing.append("external_id")
+        if not t.title:         missing.append("title")
+        if not t.publication_date: missing.append("publication_date")
+        if not t.source:        missing.append("source")
+        if missing:
+            logger.warning(f"[QC] {source} — tender {t.external_id or '?'} missing fields: {missing}")
+            issues += 1
+    if issues:
+        logger.warning(f"[QC] {source} — {issues}/{len(tenders)} tenders had quality issues")
+    else:
+        logger.info(f"[QC] {source} — all {len(tenders)} tenders passed quality check OK")
+
+def _check_fetch_health(notices, source, since):
+    """Warns if fetch returns suspiciously low results."""
+    if since is None and len(notices) == 0:
+        logger.error(f"[HealthCheck] {source} — Full fetch returned 0 results. API may be down or query broken!")
+    elif len(notices) == 0:
+        logger.info(f"[HealthCheck] {source} — 0 new notices since {since.date()}. Normal if no new tenders today.")
+    else:
+        logger.info(f"[HealthCheck] {source} — Fetch healthy: {len(notices)} notices returned.")
 
 def run_connector(connector_name: str, client, mapper) -> dict:
     """
@@ -17,7 +42,7 @@ def run_connector(connector_name: str, client, mapper) -> dict:
 
     Args:
         connector_name: e.g. "TED_EU"
-        client:         The connector's client module (must have fetch_notices())
+        client:         The connector's client module (must have fetch_raw_notices())
         mapper:         The connector's mapper module (must have map_collection())
 
     Returns:
@@ -32,8 +57,15 @@ def run_connector(connector_name: str, client, mapper) -> dict:
         logger.info(f"[Pipeline] Starting run for {connector_name}")
 
         # Step 1: Fetch raw data
-        raw_notices = client.fetch_notices()
+        raw_notices = []
+        since = db.get_last_run_time(source=connector_name)
+
+              
+        raw_notices = client.fetch_raw_notices(since = since)
         logger.info(f"[Pipeline] Fetched {len(raw_notices)} raw notices from {connector_name}")
+
+        # Step 1b: Fetch health check
+        _check_fetch_health(raw_notices, connector_name, since)
 
         # Step 2: Map to dicts
         mapped = mapper.map_collection(raw_notices)
@@ -41,6 +73,9 @@ def run_connector(connector_name: str, client, mapper) -> dict:
         # Step 3: Normalize → CanonicalTender objects
         tenders = normalize_collection(mapped)
         logger.info(f"[Pipeline] Normalized {len(tenders)} tenders")
+
+        # Step 3b: Data quality checks
+        _check_tender_quality(tenders, connector_name)
 
         # Step 4: Score each tender
         tenders = scoring_engine.score_collection(tenders)

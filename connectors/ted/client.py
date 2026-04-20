@@ -106,6 +106,7 @@ def fetch_raw_notices(since: Optional[datetime] = None) -> list[dict]:
             "paginationMode": "PAGE_NUMBER",
             "checkQuerySyntax": False,
             "fields": FIELDS,
+            "onlyLatestVersions": True,
         }
         
         
