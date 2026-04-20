@@ -12,11 +12,11 @@ class ScoringEngine:
         config = load_config()
         relevance = config.get('relevance', {})
 
-        self.strong_keywords = [kw.lower() for kw in relevance.get('strong_keywords', [])]
-        self.secondary_keywords = [kw.lower() for kw in relevance.get('secondary_keywords', [])]
+        self.strong_keywords = [kw.lower() for kw in relevance.get('keywords_strong', [])]
+        self.secondary_keywords = [kw.lower() for kw in relevance.get('keywords_secondary', [])]
         self.cpv_codes = [str(c) for c in relevance.get('cpv_codes', [])]
 
-        weights = relevance.get('weights', {})
+        weights = config.get('weights', {})
         self.weight_keyword = weights.get('keyword_score', 0.7)
         self.weight_cpv = weights.get('cpv_score', 0.3)
 

@@ -40,9 +40,35 @@ def test_normalization(mapped):
 # ── Phase 1d: Test Scoring ─────────────────────────────────────────────────────
 def test_scoring(normalized):
     from core.scoring_engine import ScoringEngine
+    from core.config_loader import load_config
+
+    # # Print what keywords the engine loaded
+    # config = load_config()
+    # relevance = config.get('relevance', {})
+    # print("   Strong keywords:", relevance.get('strong_keywords', []))
+    # print("   Secondary keywords:", relevance.get('secondary_keywords', []))
+
+    engine = ScoringEngine()
+    print("Strong keywords:", engine.strong_keywords)
+    print("Secondary keywords:", engine.secondary_keywords)
+    # Print what the first tender's title+description looks like
+    t0 = normalized[0]
+    print(f"   Title to match: '{t0.title}'")
+    print(f"   Description:    '{t0.description[:100]}'")
     engine = ScoringEngine()
     scored = engine.score_collection(normalized)
     print(f"✅ Scored {len(scored)} tenders")
+
+    # Show score distribution
+    a = [t for t in scored if t.score_category == "A"]
+    b = [t for t in scored if t.score_category == "B"]
+    c = [t for t in scored if t.score_category == "C"]
+    print(f"   Category A: {len(a)} | B: {len(b)} | C: {len(c)}")
+    
+    # Show top 3
+    top = sorted(scored, key=lambda t: t.score, reverse=True)[:3]
+    for t in top:
+        print(f"   [{t.score_category}] {t.score:5.1f} | {t.title[:60]}")
     print(f"   Sample score: {scored[0].score} ({scored[0].score_category})")
     return scored
 
@@ -71,17 +97,45 @@ def test_db(scored):
 # ── Phase 2: Test Ingest ───────────────────────────────────────────────────────
 def test_ingest(scored, db):
     from pipeline.ingest import ingest_tenders
+    from datetime import datetime, timezone
+
+    started_at = datetime.now(timezone.utc)
     summary, to_notify = ingest_tenders(scored, db, source="TED_EU")
-    print(f"✅ Ingest summary: {summary}")
-    print(f"   Tenders to notify: {len(to_notify)}")
+    print(f"✅ Ingest complete")
+    print(f"   New:       {summary['new']}")
+    print(f"   Updated:   {summary['updated']}")
+    print(f"   Unchanged: {summary['unchanged']}")
+    print(f"   Errors:    {summary['errors']}")
+    print(f"   To notify: {len(to_notify)}")
+
+    if to_notify:
+        print(f"   Sample notify: {to_notify[0].title[:60]}")
+
+    return summary, to_notify
+    # print(f"✅ Ingest summary: {summary}")
+    # print(f"   Tenders to notify: {len(to_notify)}")
+
+def test_mapper(raw):
+    from connectors.ted import mapper
+    mapped = mapper.map_collection(raw)
+    print(f"✅ Mapped {len(mapped)} notices")
+    t = mapped[0]
+    print(f"   external_id:  {t['external_id']}")
+    print(f"   title:        {t['title']}")
+    print(f"   buyer_name:   {t['buyer_name']}")
+    print(f"   buyer_country:{t['buyer_country']}")
+    print(f"   notice_type:  {t['notice_type']}")
+    print(f"   url:          {t['url']}")
+    print(f"   pub_date:     {t['publication_date']}")
+    return mapped
 
 # ── Run what you need ──────────────────────────────────────────────────────────
 if __name__ == "__main__":
     raw        = test_client()
     if not raw:
         raise SystemExit("Stopping because client returned no data")
-    # mapped     = test_mapper(raw)
-    # normalized = test_normalization(mapped)
-    # scored     = test_scoring(normalized)
-    # db, scored = test_db(scored)
-    # test_ingest(scored, db)
+    mapped     = test_mapper(raw)
+    normalized = test_normalization(mapped)
+    scored     = test_scoring(normalized)
+    db, scored = test_db(scored)
+    summary, to_notify = test_ingest(scored, db)

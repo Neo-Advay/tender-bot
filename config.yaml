@@ -25,3 +25,17 @@ relevance:
 weights:
   keyword_score: 0.5
   cpv_score: 0.5
+
+notifications:
+  email:
+    enabled: true
+    smtp_host: "smtp.office365.com"
+    smtp_port: 587
+    use_starttls: true
+    username_env: "OUTLOOK_SMTP_USERNAME"
+    password_env: "OUTLOOK_SMTP_PASSWORD"
+    from_address: "a.deshpande@neospace.group"
+    to_addresses:
+      - "a.deshpande@neospace.group"
+    mode: "digest"   # "digest" or "immediate"
+    max_items: 50

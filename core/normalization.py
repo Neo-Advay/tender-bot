@@ -23,11 +23,27 @@ def parse_date(raw: str | None) -> str | None:
     """Try multiple date formats, return ISO YYYY-MM-DD string or None."""
     if not raw:
         return None
+    
+    raw = str(raw).strip()
+    
+    # Strip timezone offset: "2019-05-31+02:00" → "2019-05-31"
+    if "+" in raw:
+        raw = raw.split("+")[0].strip()
+    
+    # If only a year is returned (e.g. "2025"), default to Jan 1 of that year
+    if re.fullmatch(r"\d{4}", raw):
+        return f"{raw}-01-01"
+    
+    # Take first 10 chars if ISO-like: "2019-05-31T00:00:00" → "2019-05-31"
+    if len(raw) > 10 and raw[4] == "-":
+        raw = raw[:10]
+    
     for fmt in _DATE_FORMATS:
         try:
-            return datetime.strptime(raw.strip(), fmt).strftime("%Y-%m-%d")
+            return datetime.strptime(raw, fmt).strftime("%Y-%m-%d")
         except (ValueError, AttributeError):
             continue
+    
     logger.warning(f"[Normalization] Could not parse date: '{raw}'")
     return None
 

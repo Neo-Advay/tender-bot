@@ -1,5 +1,6 @@
 # connectors/ted/client.py
-
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 import requests
 import logging
 import time
@@ -11,13 +12,12 @@ logger = logging.getLogger(__name__)
 TED_SEARCH_URL = "https://api.ted.europa.eu/v3/notices/search"
 
 FIELDS = [
+    "publication-number",
     "publication-date",
     "notice-title",
     "buyer-name",
     "buyer-country",
     "notice-type",
-    "deadline-receipt-tenders",
-    "cpv-code",
     "links",
 ]
 
@@ -51,6 +51,7 @@ def _post_with_retry(payload: dict) -> dict:
                 json=payload,
                 headers=headers,
                 timeout=REQUEST_TIMEOUT,
+                verify=False,
             )
 
             if response.status_code == 200:
