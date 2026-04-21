@@ -39,3 +39,13 @@ notifications:
       - "a.deshpande@neospace.group"
     mode: "digest"   # "digest" or "immediate"
     max_items: 50
+
+smtp:
+  host: relay.neospace-grp.de
+  port: 465
+  username: ai@relay.neospace-grp.de
+  password: "gn^gU613cqhG3rxFu"
+  from_address: ai@relay.neospace-grp.de
+  from_name: "AI NEOSPACE"
+  recipients:
+    - a.deshpande@neospace.group

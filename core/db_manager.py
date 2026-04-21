@@ -23,6 +23,7 @@ class DatabaseManager:
         Base.metadata.create_all(self.engine)
         self._create_run_log_table()
         self._create_unique_indexes()
+        self.create_notifications_sent_table()
         logger.info("Database tables created successfully.")
 
     def _create_unique_indexes(self):
@@ -174,3 +175,41 @@ class DatabaseManager:
                 dt = datetime.fromisoformat(dt)
             return dt.replace(tzinfo=timezone.utc) if dt.tzinfo is None else dt
         return None
+    
+    def create_notifications_sent_table(self):
+        """Creates the notifications_sent table if it doesn't exist."""
+        with self.engine.connect() as conn:
+            conn.execute(text("""
+                CREATE TABLE IF NOT EXISTS notifications_sent (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                source TEXT NOT NULL,
+                external_id TEXT NOT NULL,
+                status TEXT NOT NULL,
+                sent_at TEXT NOT NULL
+                )
+            """))
+            conn.commit()
+
+    def is_notification_sent(self, source: str, external_id: str, status: str) -> bool:
+        """Returns True if this (source, external_id, status) was already notified."""
+        with self.engine.connect() as conn:
+            result = conn.execute(text("""
+                SELECT 1 FROM notifications_sent
+                WHERE source = :source AND external_id = :eid AND status = :status
+                LIMIT 1
+            """), {"source": source, "eid": external_id, "status": status}).fetchone()
+        return result is not None
+
+    def insert_notification_sent(self, source: str, external_id: str, status: str):
+        """Records a sent notification."""
+        with self.engine.connect() as conn:
+            conn.execute(text("""
+                INSERT INTO notifications_sent (source, external_id, status, sent_at)
+                VALUES (:source, :eid, :status, :sent_at)
+            """), {
+                "source": source,
+                "eid": external_id,
+                "status": status,
+                "sent_at": datetime.now(timezone.utc).isoformat()
+            })
+            conn.commit()

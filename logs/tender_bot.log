@@ -222,3 +222,22 @@
 2026-04-20 14:16:52,591 [INFO] __main__ — ============================================================
 2026-04-20 14:16:52,591 [INFO] __main__ — [Main] All connectors done — New: 0, Updated: 0, Unchanged: 0, Errors: 0
 2026-04-20 14:16:52,591 [INFO] __main__ — ============================================================
+2026-04-20 14:44:14,199 [INFO] __main__ — ============================================================
+2026-04-20 14:44:14,199 [INFO] __main__ — Tender Bot — Starting full run
+2026-04-20 14:44:14,199 [INFO] __main__ — ============================================================
+2026-04-20 14:44:14,199 [INFO] __main__ — [Main] Running connector: TED_EU
+2026-04-20 14:44:14,209 [INFO] pipeline.run_pipeline — [Pipeline] Starting run for TED_EU
+2026-04-20 14:44:14,211 [INFO] connectors.ted.client — [TED] Fetching page 1 (since=2026-04-20)...
+2026-04-20 14:44:14,618 [INFO] connectors.ted.client — [TED] Page 1: 0 notices returned.
+2026-04-20 14:44:14,618 [INFO] connectors.ted.client — [TED] Last page reached at page 1.
+2026-04-20 14:44:14,618 [INFO] connectors.ted.client — [TED] Total raw notices fetched: 0
+2026-04-20 14:44:14,618 [INFO] pipeline.run_pipeline — [Pipeline] Fetched 0 raw notices from TED_EU
+2026-04-20 14:44:14,618 [INFO] pipeline.run_pipeline — [HealthCheck] TED_EU — 0 new notices since 2026-04-20. Normal if no new tenders today.
+2026-04-20 14:44:14,619 [INFO] pipeline.run_pipeline — [Pipeline] Normalized 0 tenders
+2026-04-20 14:44:14,619 [INFO] pipeline.run_pipeline — [QC] TED_EU — all 0 tenders passed quality check OK
+2026-04-20 14:44:14,619 [INFO] pipeline.ingest — [Ingest] Run complete for TED_EU — New: 0, Updated: 0, Unchanged: 0, Errors: 0
+2026-04-20 14:44:14,619 [INFO] pipeline.run_pipeline — [Pipeline] TED_EU done — 0 tenders queued for notification
+2026-04-20 14:44:14,622 [INFO] pipeline.ingest — [Ingest] Run log saved for TED_EU — Status: SUCCESS
+2026-04-20 14:44:14,622 [INFO] __main__ — ============================================================
+2026-04-20 14:44:14,622 [INFO] __main__ — [Main] All connectors done — New: 0, Updated: 0, Unchanged: 0, Errors: 0
+2026-04-20 14:44:14,622 [INFO] __main__ — ============================================================

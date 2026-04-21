@@ -6,9 +6,11 @@ from core.normalization import normalize_collection
 from core.scoring_engine import ScoringEngine
 from core.db_manager import DatabaseManager
 from pipeline.ingest import ingest_tenders, log_run
+from pipeline.notifications import NotificationService
 
 logger = logging.getLogger(__name__)
 scoring_engine = ScoringEngine()
+notification_service = NotificationService(mode="smtp")
 
 def _check_tender_quality(tenders, source):
     """Logs warnings for tenders missing critical fields."""
@@ -84,6 +86,7 @@ def run_connector(connector_name: str, client, mapper) -> dict:
         summary, to_notify = ingest_tenders(tenders, db, source=connector_name)
 
         logger.info(f"[Pipeline] {connector_name} done — {len(to_notify)} tenders queued for notification")
+        notification_service.notify(to_notify, source=connector_name,db=db)
 
     except Exception as e:
         error_msg = str(e)

@@ -38,7 +38,7 @@ def ingest_tenders(
                 # ── NEW tender ──────────────────────────────────────────
                 db_manager.insert_tender(tender)
                 tender._is_new = True
-                to_notify.append(tender)
+                to_notify.append((tender, "NEW"))
                 summary["new"] += 1
                 logger.info(f"[Ingest] NEW: [{source}] {tender.external_id} — {tender.title[:60]}")
 
@@ -46,7 +46,7 @@ def ingest_tenders(
                 # ── UPDATED tender ──────────────────────────────────────
                 db_manager.update_tender(tender)
                 tender._is_new = False
-                to_notify.append(tender)
+                to_notify.append((tender, "UPDATED"))
                 summary["updated"] += 1
                 logger.info(f"[Ingest] UPDATED: [{source}] {tender.external_id} — {tender.title[:60]}")
 
