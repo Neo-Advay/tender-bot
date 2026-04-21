@@ -1,0 +1,44 @@
+name: Tender Bot
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'   # Every 4 hours
+  workflow_dispatch:          # Also allows manual trigger from GitHub UI
+
+jobs:
+  run-tender-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Initialize DB if not exists
+        run: python initialize_setup.py
+
+      - name: Run Tender Bot
+        env:
+          SMTP_HOST:       ${{ secrets.SMTP_HOST }}
+          SMTP_USERNAME:   ${{ secrets.SMTP_USERNAME }}
+          SMTP_PASSWORD:   ${{ secrets.SMTP_PASSWORD }}
+          SMTP_FROM:       ${{ secrets.SMTP_FROM }}
+          SMTP_RECIPIENTS: ${{ secrets.SMTP_RECIPIENTS }}
+        run: python main.py
+
+      - name: Commit updated DB back to repo
+        run: |
+          git config user.name "Tender Bot"
+          git config user.email "bot@neospace-grp.de"
+          git add data/tenders.db
+          git diff --staged --quiet || git commit -m "chore: update tenders DB [skip ci]"
+          git push
