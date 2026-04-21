@@ -1,5 +1,6 @@
 name: Tender Bot
-
+permissions:
+    contents: write
 on:
   schedule:
     - cron: '0 */4 * * *'   # Every 4 hours
