@@ -3,7 +3,7 @@ permissions:
     contents: write
 on:
   schedule:
-    - cron: '0 */4 * * *'   # Every 4 hours
+    - cron: '0 9 * * *'         # at 9:00 AM every day
   workflow_dispatch:          # Also allows manual trigger from GitHub UI
 
 jobs:
