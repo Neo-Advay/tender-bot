@@ -15,7 +15,7 @@ sys.stderr.reconfigure(encoding='utf-8')
 config = load_config()
 
 logging.basicConfig(
-    level=getattr(logging, config.get('log_level', 'INFO').upper(), logging.INFO),
+    level=getattr(logging, config.get('app', {}).get('log_level', 'INFO').upper(), logging.INFO),
     format="%(asctime)s [%(levelname)s] %(name)s — %(message)s",
     handlers=[
         logging.StreamHandler(sys.stdout),                  # Console
